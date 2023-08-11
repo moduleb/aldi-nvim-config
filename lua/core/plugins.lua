@@ -43,6 +43,7 @@ require("lazy").setup({
         lazy = false,
     },
     { "mbbill/undotree" },
+    { "simrat39/symbols-outline.nvim", opts = {} },
 
     -- colorthemes
     { "sainnhe/gruvbox-material" },

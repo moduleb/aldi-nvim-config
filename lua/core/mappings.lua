@@ -27,7 +27,10 @@ vim.keymap.set("n", "<leader>x", ":bd<Enter>")
 vim.keymap.set("n", "<F8>", vim.cmd.TSPlaygroundToggle, {})
 
 -- undotree
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {})
+
+-- symbols-outline
+vim.keymap.set("n", "<leader>o", vim.cmd.SymbolsOutline, {})
 
 -- запускает python файл
 vim.api.nvim_create_autocmd(
