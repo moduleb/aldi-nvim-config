@@ -18,12 +18,23 @@ nvim
 ```
 
 ## 📦 Setup
-Install LSP
+#### Install LSP
 Enter :LspInstall followed by the name of the server you want to install
 
-Example: :LspInstall pyright
+Example: `:LspInstall pyright`
 
-Install language parser
+#### Install language parser
 Enter :TSInstall followed by the name of the language you want to install
 
-Example: :TSInstall python
+Example: `:TSInstall python`
+
+#### For my configuration install in Mason
+
+◍ black
+◍ lua-language-server
+◍ prettierd
+◍ pyright
+◍ quick-lint-js
+◍ stylua
+◍ typescript-language-server
+
