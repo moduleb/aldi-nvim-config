@@ -32,6 +32,10 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {})
 -- symbols-outline
 vim.keymap.set("n", "<leader>o", vim.cmd.SymbolsOutline, {})
 
+-- terminal (voldikss/vim-floaterm)
+vim.keymap.set("n", "<leader>w", ":FloatermToggle<CR>", {})
+vim.keymap.set("t", "<leader>w", "<C-\\><C-n>:FloatermToggle<CR>", {})
+
 -- запускает python файл
 vim.api.nvim_create_autocmd(
     "FileType",
