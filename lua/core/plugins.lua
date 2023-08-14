@@ -44,6 +44,7 @@ require("lazy").setup({
     },
     { "mbbill/undotree" },
     { "simrat39/symbols-outline.nvim", opts = {} },
+    { "mhartington/formatter.nvim" },
 
     -- colorthemes
     { "sainnhe/gruvbox-material" },
