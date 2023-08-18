@@ -46,13 +46,14 @@ require("lazy").setup({
     { "simrat39/symbols-outline.nvim", opts = {} },
     { "mhartington/formatter.nvim" },
 
-    -- colorthemes
+    -- colorthemes and decor
     { "sainnhe/gruvbox-material" },
     -- {
     --     "folke/tokyonight.nvim",
     --     lazy = false,
     --     priority = 1000,
     -- },
+    { "lukas-reineke/indent-blankline.nvim" }, -- decor
 
     -- lsp
     {
