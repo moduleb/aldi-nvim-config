@@ -6,7 +6,14 @@ local function copyf(f)
 	end
 end
 
-local prettierFormat = function(parser)
+local function copyf_with_params(f, parser, tab_width)
+	return function(...)
+		return f(parser, tab_width, ...)
+	end
+end
+
+local prettierFormat = function(parser, tab_width)
+	tab_width = tab_width or "4"
 	if not parser then
 		return {
 			exe = "prettier",
@@ -14,7 +21,7 @@ local prettierFormat = function(parser)
 				"--stdin-filepath",
 				util.escape_path(util.get_current_buffer_file_path()),
 				"--tab-width",
-				"4",
+				tab_width,
 			},
 			stdin = true,
 			try_node_modules = true,
@@ -27,7 +34,7 @@ local prettierFormat = function(parser)
 			"--stdin-filepath",
 			util.escape_path(util.get_current_buffer_file_path()),
 			"--tab-width",
-			"4",
+			tab_width,
 			"--parser",
 			parser,
 		},
@@ -41,11 +48,11 @@ require("formatter").setup({
 	filetype = {
 		lua = { require("formatter.filetypes.lua").stylua },
 		python = { require("formatter.filetypes.python").black },
-		typescript = { prettierFormat("typescript") },
-		typescriptreact = { prettierFormat("typescriptreact") },
-		javascript = { copyf(prettierFormat) },
-		javascriptreact = { copyf(prettierFormat) },
-		html = { copyf(prettierFormat) },
-		css = { prettierFormat("css") },
+		typescript = { copyf_with_params(prettierFormat, "typescript", "4") },
+		typescriptreact = { copyf_with_params(prettierFormat, "typescriptreact", 4) },
+		javascript = { copyf_with_params(prettierFormat, nil, "4") },
+		javascriptreact = { copyf_with_params(prettierFormat, nil, "4") },
+		html = { copyf_with_params(prettierFormat, nil, "2") },
+		css = { copyf_with_params(prettierFormat, "css", "2") },
 	},
 })
