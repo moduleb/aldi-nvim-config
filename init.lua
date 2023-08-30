@@ -3,7 +3,7 @@ require("core.plugins")
 require("core.mappings")
 require("core.colors")
 require("core.configs")
-
+require("core.indent")
 
 -- Plugins
 require("plugins.nvimtree")

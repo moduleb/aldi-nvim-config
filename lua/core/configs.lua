@@ -1,4 +1,4 @@
-vim.opt.encoding = 'utf-8'
+vim.opt.encoding = "utf-8"
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
@@ -30,7 +30,6 @@ vim.opt.relativenumber = true
 -- Mouse
 vim.opt.mouse = "a"
 vim.opt.mousefocus = true
-
 
 -- colors
 vim.opt.termguicolors = true

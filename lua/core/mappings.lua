@@ -19,8 +19,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", ",<space>", "<cmd>:nohlsearch<CR>")
 
 -- buffers
-vim.keymap.set("n", "H", ":bp<Enter>")
-vim.keymap.set("n", "L", ":bn<Enter>")
+-- vim.keymap.set("n", "H", ":bp<Enter>")
+-- vim.keymap.set("n", "L", ":bn<Enter>")
 vim.keymap.set("n", "<leader>x", ":bd<Enter>")
 
 -- treesitter playground
