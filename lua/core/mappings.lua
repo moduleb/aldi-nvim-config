@@ -1,3 +1,4 @@
+local indent = require("core.indent")
 -- global
 vim.g.mapleader = " "
 vim.keymap.set("i", "jk", "<ESC>")
@@ -19,8 +20,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", ",<space>", "<cmd>:nohlsearch<CR>")
 
 -- buffers
--- vim.keymap.set("n", "H", ":bp<Enter>")
--- vim.keymap.set("n", "L", ":bn<Enter>")
+vim.keymap.set("n", "H", ":bp<Enter>")
+vim.keymap.set("n", "L", ":bn<Enter>")
 vim.keymap.set("n", "<leader>x", ":bd<Enter>")
 
 -- treesitter playground
@@ -45,4 +46,8 @@ vim.api.nvim_create_autocmd(
     { pattern = {"python"}, command = [[map <buffer><C-h> :FloatermNew --wintype=split --height=0.4 --autoclose=0 python % <CR>]]}
 )
 
-
+-- установка табуляции для разных типов файлов
+vim.api.nvim_create_autocmd(
+    "BufEnter",
+    { callback = indent.set_tabulation }
+)

@@ -1,4 +1,6 @@
-local function set_tabulation()
+local M = {}
+
+function M.set_tabulation()
     local bufnumber = vim.api.nvim_get_current_buf()
     local filetype = vim.filetype.match({ buf = bufnumber })
     if filetype == "javascript" then
@@ -20,15 +22,17 @@ local function set_tabulation()
     end
 end
 
-local function change_buf_left()
-    vim.cmd.bp()
-    set_tabulation()
-end
+return M
 
-local function change_buf_right()
-    vim.cmd.bn()
-    set_tabulation()
-end
+-- local function change_buf_left()
+--     vim.cmd.bp()
+--     set_tabulation()
+-- end
+--
+-- local function change_buf_right()
+--     vim.cmd.bn()
+--     set_tabulation()
+-- end
 
-vim.keymap.set("n", "H", change_buf_left, {})
-vim.keymap.set("n", "L", change_buf_right, {})
+-- vim.keymap.set("n", "H", change_buf_left, {})
+-- vim.keymap.set("n", "L", change_buf_right, {})
