@@ -54,6 +54,7 @@ require("lazy").setup({
     --     priority = 1000,
     -- },
     { "lukas-reineke/indent-blankline.nvim" }, -- decor
+    { "NvChad/nvim-colorizer.lua" }, -- decor
 
     -- lsp
     {
