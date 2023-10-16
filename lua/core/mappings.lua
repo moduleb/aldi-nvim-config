@@ -1,10 +1,9 @@
-local indent = require("core.indent")
 -- global
 vim.g.mapleader = " "
 vim.keymap.set("i", "jk", "<ESC>")
 
 -- copy
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- other
@@ -42,12 +41,9 @@ vim.keymap.set("n", "<leader>f", ":FormatWrite<CR>", {})
 
 -- запускает python файл
 vim.api.nvim_create_autocmd(
-    "FileType",
-    { pattern = {"python"}, command = [[map <buffer><C-h> :FloatermNew --wintype=split --height=0.4 --autoclose=0 python % <CR>]]}
-)
-
--- установка табуляции для разных типов файлов
-vim.api.nvim_create_autocmd(
-    "BufEnter",
-    { callback = indent.set_tabulation }
+	"FileType",
+	{
+		pattern = { "python" },
+		command = [[map <buffer><C-h> :FloatermNew --wintype=split --height=0.4 --autoclose=0 python % <CR>]],
+	}
 )
