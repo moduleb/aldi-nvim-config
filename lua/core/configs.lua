@@ -1,3 +1,5 @@
+local indent = require("core.indent")
+
 vim.opt.encoding = "utf-8"
 vim.opt.wrap = false
 
@@ -33,3 +35,9 @@ vim.opt.mousefocus = true
 
 -- colors
 vim.opt.termguicolors = true
+
+-- установка табуляции для разных типов файлов
+vim.api.nvim_create_autocmd(
+    "BufEnter",
+    { callback = indent.set_tabulation }
+)
