@@ -2,11 +2,16 @@
 -- vim.opt.listchars:append "space:⋅"
 -- vim.opt.listchars:append "eol:↴"
 
-require("indent_blankline").setup({
-	-- for example, context is off by default, use this to turn it on
-	show_current_context = true,
-	show_current_context_start = true,
-
-	-- space_char_blankline = " ",
-	-- show_end_of_line = true,
+require("ibl").setup({
+	indent = {
+		char = "┊",
+        -- tab_char = { "a", "b", "c" },
+		-- highlight = { "Function", "Label" },
+        smart_indent_cap = true,
+	},
+	scope = {
+		enabled = true,
+		show_end = false,
+		show_exact_scope = true,
+	},
 })
