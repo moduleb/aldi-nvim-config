@@ -57,24 +57,23 @@ require("lazy").setup({
     { "NvChad/nvim-colorizer.lua" }, -- decor
 
     -- lsp
-    {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v2.x",
-        dependencies = {
-            -- LSP Support
-            {"neovim/nvim-lspconfig"},             -- Required
-            {"williamboman/mason.nvim"},           -- Optional
-            {"williamboman/mason-lspconfig.nvim"}, -- Optional
+    { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
+        -- dependencies = {
+    -- LSP Support
+    {"neovim/nvim-lspconfig"},             -- Required
+    {"williamboman/mason.nvim"},           -- Optional
+    {"williamboman/mason-lspconfig.nvim"}, -- Optional
 
-            -- Autocompletion
-            {"hrsh7th/nvim-cmp"},     -- Required
-            {"hrsh7th/cmp-nvim-lsp"}, -- Required
-            {"L3MON4D3/LuaSnip"},     -- Required
-            {"hrsh7th/cmp-buffer"},   -- Required
-            {"hrsh7th/cmp-path"},     -- Required
-            {"saadparwaiz1/cmp_luasnip"},-- Required
-        }
-    },
+    -- Autocompletion
+    {"hrsh7th/nvim-cmp"},     -- Required
+    {"hrsh7th/cmp-nvim-lsp"}, -- Required
+    {"L3MON4D3/LuaSnip"},     -- Required
+    {"hrsh7th/cmp-buffer"},   -- Required
+    {"hrsh7th/cmp-path"},     -- Required
+    {"saadparwaiz1/cmp_luasnip"},-- Required
+        -- }
+    -- },
+
     -- telescope
     {
         "nvim-telescope/telescope.nvim",
