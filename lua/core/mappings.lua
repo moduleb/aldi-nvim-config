@@ -23,8 +23,11 @@ vim.keymap.set("n", "H", ":bp<Enter>")
 vim.keymap.set("n", "L", ":bn<Enter>")
 vim.keymap.set("n", "<leader>x", ":bd<Enter>")
 
--- treesitter playground
-vim.keymap.set("n", "<F8>", vim.cmd.TSPlaygroundToggle, {})
+-- windows
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Switch Window left" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Switch Window right" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Switch Window down" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Switch Window up" })
 
 -- undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {})
@@ -47,6 +50,6 @@ vim.api.nvim_create_autocmd(
 	"FileType",
 	{
 		pattern = { "python" },
-		command = [[map <buffer><C-h> :FloatermNew --wintype=split --height=0.4 --autoclose=0 python % <CR>]],
+		command = [[map <buffer><C-s> :FloatermNew --wintype=split --height=0.4 --autoclose=0 python3 % <CR>]],
 	}
 )
