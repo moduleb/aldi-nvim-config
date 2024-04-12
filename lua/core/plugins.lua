@@ -31,7 +31,6 @@ require("lazy").setup({
 
     -- text formatting
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    { "nvim-treesitter/playground" },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
