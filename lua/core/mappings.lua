@@ -1,6 +1,7 @@
 -- global
 vim.g.mapleader = " "
 vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("n", "<C-q>", ":q<CR>")
 
 -- copy
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
