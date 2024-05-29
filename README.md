@@ -1,4 +1,14 @@
 ## 🛠️ Installation
+
+##### Install dependencies
+- ripgrep
+- npm
+###### For MacOS
+```
+brew install ripgrep
+brew install npm
+```
+
 ##### Make a backup of your current nvim folder
 ```
 mv ~/.config/nvim ~/.config/nvim.bak
@@ -30,11 +40,9 @@ Example: `:TSInstall python`
 
 #### For my configuration install in Mason
 
-◍ black
 ◍ lua-language-server
-◍ prettierd
 ◍ pyright
-◍ quick-lint-js
+◍ ruff-lsp
 ◍ stylua
 ◍ typescript-language-server
 
