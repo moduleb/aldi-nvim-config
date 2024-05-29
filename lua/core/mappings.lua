@@ -53,3 +53,9 @@ vim.api.nvim_create_autocmd(
 		command = [[map <buffer><C-s> :FloatermNew --wintype=split --height=0.4 --autoclose=0 python3 % <CR>]],
 	}
 )
+
+-- git
+vim.keymap.set("n", "<leader>gl", ":Flog<CR>", { desc = "Git Log" })
+vim.keymap.set("n", "<leader>gf", ":DiffviewFileHistory<CR>", { desc = "Git File History" })
+vim.keymap.set("n", "<leader>gc", ":DiffviewOpen HEAD~1<CR>", { desc = "Git Last Commit" })
+vim.keymap.set("n", "<leader>gt", ":DiffviewToggleFile<CR>", { desc = "Git File History" })
