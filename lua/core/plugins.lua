@@ -56,8 +56,9 @@ require("lazy").setup({
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
-        opts = {},
+        -- opts = {},
     },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     { "lukas-reineke/indent-blankline.nvim", main = "ibl" }, -- decor
     { "NvChad/nvim-colorizer.lua" },                         -- decor
     {
