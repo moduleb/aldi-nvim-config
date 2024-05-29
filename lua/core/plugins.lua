@@ -1,26 +1,28 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-    -- work with files
+    ------------------------------ WORK WITH FILES ------------------------------
     {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
         dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        }
     },
     {
         "Pocco81/auto-save.nvim",
@@ -32,8 +34,8 @@ require("lazy").setup({
         dependencies = "nvim-tree/nvim-web-devicons",
     },
 
-    -- text formatting
-    { "nvim-treesitter/nvim-treesitter",     build = ":TSUpdate" },
+    ------------------------------ TEXT FORMATTING ------------------------------
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
@@ -45,38 +47,44 @@ require("lazy").setup({
         lazy = false,
     },
     { "mbbill/undotree" },
-    { "simrat39/symbols-outline.nvim",       opts = {} },
+    { "simrat39/symbols-outline.nvim", opts = {} },
     { "mhartington/formatter.nvim" },
 
-    -- colorthemes and decor
+    ------------------------------ COLORTHEMES AND DECOR ------------------------------
     { "sainnhe/gruvbox-material" },
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     lazy = false,
-    --     priority = 1000,
-    -- },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
     { "lukas-reineke/indent-blankline.nvim", main = "ibl" }, -- decor
-    { "NvChad/nvim-colorizer.lua" },                       -- decor
+    { "NvChad/nvim-colorizer.lua" },                         -- decor
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        -- opts = { theme = "tokyonight" }
+    },
 
-    -- lsp
-    { "VonHeikemen/lsp-zero.nvim",           branch = "v3.x" },
+    ------------------------------ LSP ------------------------------
+    { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
     -- dependencies = {
     -- LSP Support
-    { "neovim/nvim-lspconfig" },           -- Required
-    { "williamboman/mason.nvim" },         -- Optional
+    { "neovim/nvim-lspconfig" },             -- Required
+    { "williamboman/mason.nvim" },           -- Optional
     { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
-    -- Autocompletion
-    { "hrsh7th/nvim-cmp" },       -- Required
-    { "hrsh7th/cmp-nvim-lsp" },   -- Required
-    { "L3MON4D3/LuaSnip" },       -- Required
-    { "hrsh7th/cmp-buffer" },     -- Required
-    { "hrsh7th/cmp-path" },       -- Required
+    ------------------------------ AUTOCOMPLETION ------------------------------
+    { "hrsh7th/nvim-cmp" },         -- Required
+    { "hrsh7th/cmp-nvim-lsp" },     -- Required
+    { "L3MON4D3/LuaSnip" },         -- Required
+    { "hrsh7th/cmp-buffer" },       -- Required
+    { "hrsh7th/cmp-path" },         -- Required
     { "saadparwaiz1/cmp_luasnip" }, -- Required
     -- }
     -- },
 
-    -- telescope
+    ------------------------------ TELESCOPE ------------------------------
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
@@ -84,6 +92,18 @@ require("lazy").setup({
     },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
-    -- terminal
+    ------------------------------ TERMINAL ------------------------------
     { "voldikss/vim-floaterm" },
+
+    ------------------------------ GIT ------------------------------
+    {
+        "rbong/vim-flog",
+        lazy = false,
+        cmd = { "Flog", "Flogsplit", "Floggit" },
+        dependencies = {
+            "tpope/vim-fugitive",
+        },
+    },
+    { "sindrets/diffview.nvim",  lazy = false },
+    { "lewis6991/gitsigns.nvim", opts = {} }
 })
