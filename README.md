@@ -1,27 +1,27 @@
 ## 🛠️ Installation
 
-##### Install dependencies
+#### Install dependencies
 - ripgrep
 - npm
-###### For MacOS
+##### For MacOS
 ```
 brew install ripgrep
 brew install npm
 ```
 
-##### Make a backup of your current nvim folder
+#### Make a backup of your current nvim folder
 ```
 mv ~/.config/nvim ~/.config/nvim.bak
 ```
 
-##### Clean neovim folders (Optional but recommended)
+#### Clean neovim folders (Optional but recommended)
 ```
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
 mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 ```
 
-##### Clone the repository
+#### Clone the repository
 ```
 git clone https://github.com/ALDeig/aldi-nvim-config.git ~/.config/nvim
 nvim
