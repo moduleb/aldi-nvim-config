@@ -1,10 +1,15 @@
 local pyright_settings = require("plugins.pyright")
 local lsp_zero = require('lsp-zero')
 
+
 lsp_zero.on_attach(function(_, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
+    local opts = { buffer = bufnr, noremap = true, silent = true }
     lsp_zero.default_keymaps({ buffer = bufnr })
+    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+    -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    -- more code  ...
 end)
 
 require('mason').setup({})
@@ -41,7 +46,7 @@ lspconfig.ruff_lsp.setup {
             -- Any extra CLI arguments for `ruff` go here.
             args = {
                 -- "--select=PL,D,C4,E,G,W,F,B,SIM,UP,N,I,ASYNC,S,PTH,ARG,RUF",
-                "--ignore=ANN201,ANN003,COM812,CPY,D100,D102,D103,D107,D205,ERA001,RET502,RUF001,RUF002,RUF003",
+                "--ignore=ANN201,ANN003,COM812,CPY,D100,D102,D103,D107,D205,DTZ001,ERA001,RET502,RUF001,RUF002,RUF003",
                 "--select=ALL",
                 "--line-length=88",
                 "--preview",
